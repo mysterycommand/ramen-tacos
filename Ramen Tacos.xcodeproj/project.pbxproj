@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3C39121D28E3729420344D96 /* Pods_Ramen_Tacos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB35F8CD9ED0F24EF10200C7 /* Pods_Ramen_Tacos.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8450F3531B94FB51004159A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450F3521B94FB51004159A9 /* AppDelegate.swift */; };
-		8450F3581B94FB51004159A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8450F3561B94FB51004159A9 /* Main.storyboard */; };
 		8450F35A1B94FB51004159A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8450F3591B94FB51004159A9 /* Images.xcassets */; };
 		8450F35D1B94FB51004159A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8450F35B1B94FB51004159A9 /* LaunchScreen.xib */; };
 		8450F3691B94FB51004159A9 /* Ramen_TacosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450F3681B94FB51004159A9 /* Ramen_TacosTests.swift */; };
@@ -31,7 +30,6 @@
 		8450F34D1B94FB51004159A9 /* Ramen Tacos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ramen Tacos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8450F3511B94FB51004159A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8450F3521B94FB51004159A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8450F3571B94FB51004159A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8450F3591B94FB51004159A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8450F35C1B94FB51004159A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8450F3621B94FB51004159A9 /* Ramen TacosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ramen TacosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +101,6 @@
 			children = (
 				849E7C7C1B95028F00E8E5E9 /* ViewControllers */,
 				8450F3521B94FB51004159A9 /* AppDelegate.swift */,
-				8450F3561B94FB51004159A9 /* Main.storyboard */,
 				8450F3591B94FB51004159A9 /* Images.xcassets */,
 				8450F35B1B94FB51004159A9 /* LaunchScreen.xib */,
 				8450F3501B94FB51004159A9 /* Supporting Files */,
@@ -227,7 +224,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8450F3581B94FB51004159A9 /* Main.storyboard in Resources */,
 				8450F35D1B94FB51004159A9 /* LaunchScreen.xib in Resources */,
 				8450F35A1B94FB51004159A9 /* Images.xcassets in Resources */,
 			);
@@ -319,14 +315,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8450F3561B94FB51004159A9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8450F3571B94FB51004159A9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8450F35B1B94FB51004159A9 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
