@@ -1,0 +1,6 @@
+framework module Pods_Ramen_Tacos {
+  umbrella header "Pods-Ramen Tacos-umbrella.h"
+
+  export *
+  module * { export * }
+}

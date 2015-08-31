@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C39121D28E3729420344D96 /* Pods_Ramen_Tacos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB35F8CD9ED0F24EF10200C7 /* Pods_Ramen_Tacos.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8450F3531B94FB51004159A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450F3521B94FB51004159A9 /* AppDelegate.swift */; };
 		8450F3551B94FB51004159A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450F3541B94FB51004159A9 /* ViewController.swift */; };
 		8450F3581B94FB51004159A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8450F3561B94FB51004159A9 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5FEC2931750F551437473316 /* Pods-Ramen Tacos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ramen Tacos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ramen Tacos/Pods-Ramen Tacos.release.xcconfig"; sourceTree = "<group>"; };
 		8450F34D1B94FB51004159A9 /* Ramen Tacos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ramen Tacos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8450F3511B94FB51004159A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8450F3521B94FB51004159A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		8450F3621B94FB51004159A9 /* Ramen TacosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ramen TacosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8450F3671B94FB51004159A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8450F3681B94FB51004159A9 /* Ramen_TacosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ramen_TacosTests.swift; sourceTree = "<group>"; };
+		CB35F8CD9ED0F24EF10200C7 /* Pods_Ramen_Tacos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ramen_Tacos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE105B161CF94C1C8E289102 /* Pods-Ramen Tacos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ramen Tacos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ramen Tacos/Pods-Ramen Tacos.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C39121D28E3729420344D96 /* Pods_Ramen_Tacos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +61,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B9D789F1303039008E81A8B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE105B161CF94C1C8E289102 /* Pods-Ramen Tacos.debug.xcconfig */,
+				5FEC2931750F551437473316 /* Pods-Ramen Tacos.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		73F46D2C04F980C8DF438C93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB35F8CD9ED0F24EF10200C7 /* Pods_Ramen_Tacos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8450F3441B94FB51004159A9 = {
 			isa = PBXGroup;
 			children = (
 				8450F34F1B94FB51004159A9 /* Ramen Tacos */,
 				8450F3651B94FB51004159A9 /* Ramen TacosTests */,
 				8450F34E1B94FB51004159A9 /* Products */,
+				6B9D789F1303039008E81A8B /* Pods */,
+				73F46D2C04F980C8DF438C93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,9 +143,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8450F36C1B94FB51004159A9 /* Build configuration list for PBXNativeTarget "Ramen Tacos" */;
 			buildPhases = (
+				613B58FCC3F71B7CE9B4DDF6 /* Check Pods Manifest.lock */,
 				8450F3491B94FB51004159A9 /* Sources */,
 				8450F34A1B94FB51004159A9 /* Frameworks */,
 				8450F34B1B94FB51004159A9 /* Resources */,
+				7CF3A9FE5992BB47A1263AC6 /* Embed Pods Frameworks */,
+				40ABEE4F54D8A7C5838E2DFE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,6 +233,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40ABEE4F54D8A7C5838E2DFE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ramen Tacos/Pods-Ramen Tacos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		613B58FCC3F71B7CE9B4DDF6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7CF3A9FE5992BB47A1263AC6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ramen Tacos/Pods-Ramen Tacos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8450F3491B94FB51004159A9 /* Sources */ = {
@@ -338,6 +413,7 @@
 		};
 		8450F36D1B94FB51004159A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE105B161CF94C1C8E289102 /* Pods-Ramen Tacos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Ramen Tacos/Info.plist";
@@ -348,6 +424,7 @@
 		};
 		8450F36E1B94FB51004159A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FEC2931750F551437473316 /* Pods-Ramen Tacos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Ramen Tacos/Info.plist";
@@ -409,6 +486,7 @@
 				8450F36E1B94FB51004159A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8450F36F1B94FB51004159A9 /* Build configuration list for PBXNativeTarget "Ramen TacosTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +495,7 @@
 				8450F3711B94FB51004159A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
