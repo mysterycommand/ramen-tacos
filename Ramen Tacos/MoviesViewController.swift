@@ -9,9 +9,17 @@
 import UIKit
 
 class MoviesViewController: UIViewController {
+    
+    var tf: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tf = UITextField(frame: CGRect(x: 10.0, y: 30.0, width: 300.0, height: 30.0))
+        self.tf.borderStyle = UITextBorderStyle.RoundedRect
+        self.view.addSubview(self.tf)
+        
+        println(self.view.subviews)
 
         // Do any additional setup after loading the view.
     }
