@@ -10,16 +10,13 @@ import UIKit
 
 class MovieCell: UITableViewCell {
 
-    static let pad = 2
+    static let padX = 6
+    static let padY = 3
     static let posterWidth = 51
     static let posterHeight = 81
 
-    static var rowWidth: Int {
-        get { return MovieCell.pad + MovieCell.pad + MovieCell.posterWidth }
-    }
-
     static var rowHeight: Int {
-        get { return MovieCell.pad + MovieCell.pad + MovieCell.posterHeight }
+        get { return MovieCell.padY + MovieCell.padY + MovieCell.posterHeight }
     }
 
     var titleLabel: UILabel!
@@ -36,36 +33,37 @@ class MovieCell: UITableViewCell {
         let appWidth = Int(UIScreen.mainScreen().applicationFrame.width)
         
         let titleRect = CGRect(
-            x: MovieCell.rowWidth,
-            y: MovieCell.pad,
-            width: appWidth - MovieCell.posterWidth - MovieCell.pad * 3,
-            height: 15
+            x: MovieCell.posterWidth + MovieCell.padX,
+            y: 0,
+            width: appWidth - MovieCell.posterWidth - MovieCell.padX,
+            height: 13
         )
 
         self.titleLabel = UILabel(frame: titleRect)
         self.titleLabel.backgroundColor = UIColor.greenColor()
-        self.titleLabel.font = UIFont.systemFontOfSize(13.0, weight: 0.8)
+        self.titleLabel.font = UIFont.systemFontOfSize(12.0, weight: 0.3)
         
         let synopsisRect = CGRect(
-            x: MovieCell.rowWidth,
-            y: MovieCell.pad + MovieCell.pad + Int(titleRect.height),
+            x: MovieCell.posterWidth + MovieCell.padX,
+            y: MovieCell.padY + Int(titleRect.height),
             width: Int(titleRect.width),
-            height: 81 - MovieCell.pad - Int(titleRect.height)
+            height: MovieCell.posterHeight - MovieCell.padY - Int(titleRect.height)
         )
         
         self.synopsisLabel = UILabel(frame: synopsisRect)
         self.synopsisLabel.backgroundColor = UIColor.orangeColor()
-        self.synopsisLabel.font = UIFont.systemFontOfSize(11.0)
-        self.synopsisLabel.numberOfLines = 4
+        self.synopsisLabel.font = UIFont.systemFontOfSize(10.0)
+        self.synopsisLabel.numberOfLines = 5
         
         let posterRect = CGRect(
-            x: MovieCell.pad,
-            y: MovieCell.pad,
+            x: 0,
+            y: 0,
             width: MovieCell.posterWidth,
             height: MovieCell.posterHeight
         )
         
         self.posterView = UIImageView(frame: posterRect)
+        self.posterView.alpha = 0.0
 
         self.contentView.addSubview(self.titleLabel)
         self.contentView.addSubview(self.synopsisLabel)
