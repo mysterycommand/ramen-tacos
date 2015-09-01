@@ -18,6 +18,13 @@ class DetailsViewController: UIViewController {
         didSet {
             self.title = self.movie?["title"] as? String
             self.titleLabel?.text = self.movie?["title"] as? String
+            
+            if let urlString = self.movie?.valueForKeyPath("posters.thumbnail") as? String {
+                if let url = NSURL(string: urlString) {
+                    self.posterView?.setImageWithURL(url)
+                }
+            }
+            
             self.setPoster()
         }
     }
@@ -53,18 +60,19 @@ class DetailsViewController: UIViewController {
             if let range = range {
                 urlString = urlString.stringByReplacingCharactersInRange(range, withString: "https://content6.flixster.com/")
             }
-            println(urlString)
 
             let url = NSURL(string:  urlString)
+
             if let url = url {
                 self.posterView?.setImageWithURLRequest(
-                    NSURLRequest(URL: url),
+                    NSURLRequest(
+                        URL: url,
+                        cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad,
+                        timeoutInterval: NSTimeInterval.abs(1.0)
+                    ),
                     placeholderImage: nil,
                     success: { (request: NSURLRequest, response: NSHTTPURLResponse, image: UIImage) -> Void in
                         self.posterView?.image = image
-                        UIView.animateWithDuration(0.4, animations: {
-                            self.posterView?.alpha = 1.0
-                        })
                     },
                     failure: { (request: NSURLRequest, response: NSHTTPURLResponse, error: NSError) -> Void in
                         println(error)

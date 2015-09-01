@@ -15,6 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let cache = NSURLCache(
+            memoryCapacity: 8 * 1024 * 1024,
+            diskCapacity: 32 * 1024 * 1024,
+            diskPath: nil
+        )
+        NSURLCache.setSharedURLCache(cache)
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         let nav = UINavigationController(rootViewController: MoviesViewController())

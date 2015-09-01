@@ -74,7 +74,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             let url = NSURL(string:  urlString)
             if let url = url {
                 cell.posterView?.setImageWithURLRequest(
-                    NSURLRequest(URL: url),
+                    NSURLRequest(
+                        URL: url,
+                        cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad,
+                        timeoutInterval: NSTimeInterval.abs(1.0)
+                    ),
                     placeholderImage: nil,
                     success: { (request: NSURLRequest, response: NSHTTPURLResponse, image: UIImage) -> Void in
                         cell.posterView?.image = image
