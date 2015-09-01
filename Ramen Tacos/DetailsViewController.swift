@@ -10,11 +10,17 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
-//    var posterView: UIImageView!
+    var posterView: UIImageView!
     var titleLabel: UILabel!
 //    var synopsisLabel: UILabel!
     
-    var movie: NSDictionary?
+    var movie: NSDictionary? {
+        didSet {
+            self.title = self.movie?["title"] as? String
+            self.titleLabel?.text = self.movie?["title"] as? String
+            self.setPoster()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,17 +31,47 @@ class DetailsViewController: UIViewController {
         self.titleLabel = UILabel(frame: titleRect)
         self.titleLabel.backgroundColor = UIColor.magentaColor()
         self.titleLabel.font = UIFont.systemFontOfSize(15.0, weight: 0.3)
+        
+        let posterRect = UIScreen.mainScreen().bounds
+        
+        self.posterView = UIImageView()
+        self.posterView.frame = posterRect
 
         self.view.addSubview(self.titleLabel)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.titleLabel.text = self.movie?["title"] as? String
+        self.view.addSubview(self.posterView)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setPoster() {
+        if var urlString = self.movie?.valueForKeyPath("posters.detailed") as? String {
+            
+            var range = urlString.rangeOfString(".*cloudfront.net/", options: .RegularExpressionSearch)
+            if let range = range {
+                urlString = urlString.stringByReplacingCharactersInRange(range, withString: "https://content6.flixster.com/")
+            }
+            println(urlString)
+
+            let url = NSURL(string:  urlString)
+            if let url = url {
+                self.posterView?.setImageWithURLRequest(
+                    NSURLRequest(URL: url),
+                    placeholderImage: nil,
+                    success: { (request: NSURLRequest, response: NSHTTPURLResponse, image: UIImage) -> Void in
+                        self.posterView?.image = image
+                        UIView.animateWithDuration(0.4, animations: {
+                            self.posterView?.alpha = 1.0
+                        })
+                    },
+                    failure: { (request: NSURLRequest, response: NSHTTPURLResponse, error: NSError) -> Void in
+                        println(error)
+                    }
+                )
+            }
+        }
     }
     
     /*

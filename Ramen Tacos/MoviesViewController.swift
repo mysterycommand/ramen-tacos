@@ -96,7 +96,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 //        println(indexPath.row, tableView.indexPathForSelectedRow())
         let movie = self.movies?[indexPath.row]
         
-        self.detailsViewController.title = movie?["title"] as? String
+//        self.detailsViewController.title = movie?["title"] as? String
         self.detailsViewController.movie = movie
         
         self.navigationController?.pushViewController(detailsViewController, animated: true)
