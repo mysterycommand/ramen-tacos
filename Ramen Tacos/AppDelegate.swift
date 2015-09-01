@@ -17,10 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        let nav = UINavigationController()
-        nav.viewControllers = [
-            MoviesViewController()
-        ]
+        let nav = UINavigationController(rootViewController: MoviesViewController())
 
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.rootViewController = nav
