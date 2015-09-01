@@ -41,6 +41,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationItem.title = "Movies"
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -83,15 +87,15 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    */
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        println(indexPath, tableView.indexPathForSelectedRow())
+        let movie = self.movies?[indexPath.row]
         
+        let detailsViewController = DetailsViewController()
+        detailsViewController.movie = movie
+
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
 
 }

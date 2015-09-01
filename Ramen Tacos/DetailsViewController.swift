@@ -10,12 +10,29 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
-    var posterView: UIImageView!
+//    var posterView: UIImageView!
     var titleLabel: UILabel!
-    var synopsisLabel: UILabel!
+//    var synopsisLabel: UILabel!
+    
+    var movie: NSDictionary?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appWidth = Int(UIScreen.mainScreen().applicationFrame.width)
+        
+        let titleRect = CGRect(x: 0, y: 0, width: appWidth, height: 18)
+        
+        self.titleLabel = UILabel(frame: titleRect)
+        self.titleLabel.backgroundColor = UIColor.magentaColor()
+        self.titleLabel.font = UIFont.systemFontOfSize(15.0, weight: 0.3)
+        
+        self.view.addSubview(self.titleLabel)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationItem.title = self.movie?["title"] as? String
+        self.titleLabel.text = self.movie?["title"] as? String
     }
     
     override func didReceiveMemoryWarning() {
