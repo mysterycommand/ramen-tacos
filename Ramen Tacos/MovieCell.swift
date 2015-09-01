@@ -10,6 +10,18 @@ import UIKit
 
 class MovieCell: UITableViewCell {
 
+    static let pad = 2
+    static let posterWidth = 51
+    static let posterHeight = 81
+
+    static var rowWidth: Int {
+        get { return MovieCell.pad + MovieCell.pad + MovieCell.posterWidth }
+    }
+
+    static var rowHeight: Int {
+        get { return MovieCell.pad + MovieCell.pad + MovieCell.posterHeight }
+    }
+
     var titleLabel: UILabel!
     var synopsisLabel: UILabel!
     var posterView: UIImageView!
@@ -20,17 +32,13 @@ class MovieCell: UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        let rowHeight = 90
-        let pad = 2
-        let posterWidth = 51
-        let posterHeight = 81
+
         let appWidth = Int(UIScreen.mainScreen().applicationFrame.width)
         
         let titleRect = CGRect(
-            x: pad + pad + posterWidth,
-            y: pad,
-            width: appWidth - posterWidth - pad * 3,
+            x: MovieCell.rowWidth,
+            y: MovieCell.pad,
+            width: appWidth - MovieCell.posterWidth - MovieCell.pad * 3,
             height: 15
         )
 
@@ -39,10 +47,10 @@ class MovieCell: UITableViewCell {
         self.titleLabel.font = UIFont.systemFontOfSize(13.0, weight: 0.8)
         
         let synopsisRect = CGRect(
-            x: pad + pad + posterWidth,
-            y: pad + pad + Int(titleRect.height),
+            x: MovieCell.rowWidth,
+            y: MovieCell.pad + MovieCell.pad + Int(titleRect.height),
             width: Int(titleRect.width),
-            height: 81 - pad - Int(titleRect.height)
+            height: 81 - MovieCell.pad - Int(titleRect.height)
         )
         
         self.synopsisLabel = UILabel(frame: synopsisRect)
@@ -51,10 +59,10 @@ class MovieCell: UITableViewCell {
         self.synopsisLabel.numberOfLines = 4
         
         let posterRect = CGRect(
-            x: pad,
-            y: pad,
-            width: posterWidth,
-            height: posterHeight
+            x: MovieCell.pad,
+            y: MovieCell.pad,
+            width: MovieCell.posterWidth,
+            height: MovieCell.posterHeight
         )
         
         self.posterView = UIImageView(frame: posterRect)
@@ -70,9 +78,12 @@ class MovieCell: UITableViewCell {
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(false, animated: animated)
+        super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        self.contentView.backgroundColor = UIColor.whiteColor()
+        self.titleLabel.backgroundColor = UIColor.greenColor()
+        self.synopsisLabel.backgroundColor = UIColor.orangeColor()
     }
 
 }
