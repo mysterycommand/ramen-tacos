@@ -24,7 +24,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        self.tableView.rowHeight = MovieCell.rowHeight
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableView.rowHeight = CGFloat(MovieCell.rowHeight)
         self.tableView.registerClass(MovieCell.self, forCellReuseIdentifier: "MovieCell")
         
         self.view.addSubview(self.tableView)
@@ -59,11 +60,24 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movie = self.movies![indexPath.row]
         cell.titleLabel?.text = movie["title"] as? String
         cell.synopsisLabel?.text = movie["synopsis"] as? String
+        cell.synopsisLabel?.sizeToFit()
         
         if let urlString = movie.valueForKeyPath("posters.thumbnail") as? String {
             let url = NSURL(string:  urlString)
             if let url = url {
-                cell.posterView?.setImageWithURL(url)
+                cell.posterView?.setImageWithURLRequest(
+                    NSURLRequest(URL: url),
+                    placeholderImage: nil,
+                    success: { (request: NSURLRequest, response: NSHTTPURLResponse, image: UIImage) -> Void in
+                        cell.posterView?.image = image
+                        UIView.animateWithDuration(0.4, animations: {
+                            cell.posterView?.alpha = 1.0
+                        })
+                    },
+                    failure: { (request: NSURLRequest, response: NSHTTPURLResponse, error: NSError) -> Void in
+                        println(error)
+                    }
+                )
             }
         }
         
