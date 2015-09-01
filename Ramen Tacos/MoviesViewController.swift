@@ -18,11 +18,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         
         self.tableView = UITableView()
-        self.tableView.frame = CGRect(x: 0, y: 0, width: 320, height: 568)
+        self.tableView.frame = UIScreen.mainScreen().applicationFrame
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MovieCell")
+        self.tableView.registerClass(MovieCell.self, forCellReuseIdentifier: "MovieCell")
         
         self.view.addSubview(self.tableView)
         
@@ -34,7 +34,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             if let json = json {
                 self.movies = json["movies"] as! [NSDictionary]
                 self.tableView.reloadData()
-                println(self.movies)
             }
         }
 
@@ -54,11 +53,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
         
         let movie = self.movies![indexPath.row]
-        
-        cell.textLabel?.text = movie["title"] as? String
+        cell.titleLabel?.text = movie["title"] as? String
         
         return cell
     }

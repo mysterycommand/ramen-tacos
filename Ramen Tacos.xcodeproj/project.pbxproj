@@ -13,6 +13,7 @@
 		8450F35D1B94FB51004159A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8450F35B1B94FB51004159A9 /* LaunchScreen.xib */; };
 		8450F3691B94FB51004159A9 /* Ramen_TacosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450F3681B94FB51004159A9 /* Ramen_TacosTests.swift */; };
 		849E7C7B1B95028900E8E5E9 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E7C7A1B95028900E8E5E9 /* MoviesViewController.swift */; };
+		849E7C7F1B951D5700E8E5E9 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E7C7E1B951D5700E8E5E9 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		8450F3671B94FB51004159A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8450F3681B94FB51004159A9 /* Ramen_TacosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ramen_TacosTests.swift; sourceTree = "<group>"; };
 		849E7C7A1B95028900E8E5E9 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		849E7C7E1B951D5700E8E5E9 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		CB35F8CD9ED0F24EF10200C7 /* Pods_Ramen_Tacos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ramen_Tacos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE105B161CF94C1C8E289102 /* Pods-Ramen Tacos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ramen Tacos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ramen Tacos/Pods-Ramen Tacos.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 		8450F34F1B94FB51004159A9 /* Ramen Tacos */ = {
 			isa = PBXGroup;
 			children = (
+				849E7C7D1B951D2A00E8E5E9 /* Views */,
 				849E7C7C1B95028F00E8E5E9 /* ViewControllers */,
 				8450F3521B94FB51004159A9 /* AppDelegate.swift */,
 				8450F3591B94FB51004159A9 /* Images.xcassets */,
@@ -139,6 +142,14 @@
 				849E7C7A1B95028900E8E5E9 /* MoviesViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		849E7C7D1B951D2A00E8E5E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				849E7C7E1B951D5700E8E5E9 /* MovieCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849E7C7F1B951D5700E8E5E9 /* MovieCell.swift in Sources */,
 				8450F3531B94FB51004159A9 /* AppDelegate.swift in Sources */,
 				849E7C7B1B95028900E8E5E9 /* MoviesViewController.swift in Sources */,
 			);
