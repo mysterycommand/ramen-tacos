@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -16,12 +17,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
         self.tableView = UITableView()
         self.tableView.frame = UIScreen.mainScreen().applicationFrame
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        self.tableView.rowHeight = 90
         self.tableView.registerClass(MovieCell.self, forCellReuseIdentifier: "MovieCell")
         
         self.view.addSubview(self.tableView)
@@ -36,8 +39,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 self.tableView.reloadData()
             }
         }
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +58,15 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         let movie = self.movies![indexPath.row]
         cell.titleLabel?.text = movie["title"] as? String
+        cell.synopsisLabel?.text = movie["synopsis"] as? String
+        
+        if let urlString = movie.valueForKeyPath("posters.thumbnail") as? String {
+            println(urlString)
+            let url = NSURL(string:  urlString)
+            if let url = url {
+                cell.posterView?.setImageWithURL(url)
+            }
+        }
         
         return cell
     }
