@@ -36,7 +36,7 @@ class MovieCell: UITableViewCell {
 
         self.titleLabel = UILabel(frame: titleRect)
         self.titleLabel.backgroundColor = UIColor.greenColor()
-        self.titleLabel.font = UIFont.systemFontOfSize(13.0, weight: 1.0)
+        self.titleLabel.font = UIFont.systemFontOfSize(13.0, weight: 0.8)
         
         let synopsisRect = CGRect(
             x: pad + pad + posterWidth,

@@ -20,7 +20,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
         
         self.tableView = UITableView()
-        self.tableView.frame = UIScreen.mainScreen().applicationFrame
+        self.tableView.frame = UIScreen.mainScreen().bounds
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
@@ -61,7 +61,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         cell.synopsisLabel?.text = movie["synopsis"] as? String
         
         if let urlString = movie.valueForKeyPath("posters.thumbnail") as? String {
-            println(urlString)
             let url = NSURL(string:  urlString)
             if let url = url {
                 cell.posterView?.setImageWithURL(url)
