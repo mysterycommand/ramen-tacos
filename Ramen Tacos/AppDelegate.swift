@@ -13,16 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        let nav = UINavigationController()
+        nav.viewControllers = [
+            MoviesViewController()
+        ]
 
-        if let window = self.window {
-            window.backgroundColor = UIColor.whiteColor()
-            window.rootViewController = MoviesViewController()
-            window.makeKeyAndVisible()
-        }
+        self.window?.backgroundColor = UIColor.whiteColor()
+        self.window?.rootViewController = nav
+        self.window?.makeKeyAndVisible()
         
         return true
     }
