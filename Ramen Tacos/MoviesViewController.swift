@@ -88,13 +88,13 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        println(indexPath, tableView.indexPathForSelectedRow())
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        println(indexPath.row, tableView.indexPathForSelectedRow())
         let movie = self.movies?[indexPath.row]
         
         let detailsViewController = DetailsViewController()
         detailsViewController.movie = movie
-
+        
         self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
 
