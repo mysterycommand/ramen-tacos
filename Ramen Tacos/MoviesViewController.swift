@@ -14,10 +14,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     var tableView: UITableView!
     
     var movies: [NSDictionary]!
+    
+    let detailsViewController = DetailsViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.title = "Movies"
         
         self.tableView = UITableView()
         self.tableView.frame = UIScreen.mainScreen().bounds
@@ -92,8 +96,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 //        println(indexPath.row, tableView.indexPathForSelectedRow())
         let movie = self.movies?[indexPath.row]
         
-        let detailsViewController = DetailsViewController()
-        detailsViewController.movie = movie
+        self.detailsViewController.title = movie?["title"] as? String
+        self.detailsViewController.movie = movie
         
         self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
